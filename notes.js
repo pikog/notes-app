@@ -44,7 +44,7 @@ const getAll = () =>
     })
 }
 
-const addNote = (title, body) =>
+const addNote = (title, body, callback) =>
 {
     fetchNotes((notes) =>
     {
@@ -58,14 +58,21 @@ const addNote = (title, body) =>
             }
 
             notes.push(note)
-            saveNotes(notes, () =>
+            saveNotes(notes, (saved) =>
             {
-                console.log('Note added !')                
+                if(saved)
+                {
+                    callback()
+                }
+                else
+                {
+                    callback('Error when saved')
+                }          
             })
         }
         else
         {
-            console.log('This note already exist')
+            callback('Note already exist')
         }
     })
 }

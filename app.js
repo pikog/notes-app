@@ -11,7 +11,10 @@ switch(argv._[0])
         notes.getAll()
         break
     case 'add':
-        notes.addNote(argv.title, argv.body)
+        notes.addNote(argv.title, argv.body, (err) =>
+        {
+            if(err) { console.log(err) }
+        })
         break
     case 'read':
         notes.getNote(argv.title)

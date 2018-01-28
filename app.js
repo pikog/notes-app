@@ -11,18 +11,22 @@ const argv = yargs.argv
 switch(argv._[0])
 {
     case 'list':
+    //When we get list of all notes
         notes.getAll()
         break
     case 'add':
+    //When we add a note
         notes.addNote(argv.title, argv.body, (err) =>
         {
             err ? console.log(err) : console.log('Note created !')
         })
         break
     case 'read':
+    //When we get body of a note in function to title
         notes.getNote(argv.title)
         break
     case 'remove':
+    //When we remove a note
         notes.removeNote(argv.title, (err) =>
         {
             err ? console.log(err) : console.log('Note removed !')

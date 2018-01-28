@@ -1,9 +1,12 @@
 console.log('Starting notes.js')
 
+//Core package
 const fs = require('fs')
 
+//file path of the file to store notes
 const filePath = 'notes.json'
 
+//Function to give in callback the array of object which contains all notes
 const fetchNotes = (callback) =>
 {
     fs.readFile(filePath, (err, data) =>
@@ -12,6 +15,7 @@ const fetchNotes = (callback) =>
     })
 }
 
+//Function to write an array of notes in the file
 const saveNotes = (notes, callback) =>
 {
     fs.writeFile(filePath, JSON.stringify(notes), (err) =>
@@ -20,6 +24,7 @@ const saveNotes = (notes, callback) =>
     })
 }
 
+//Function to display all notes
 const getAll = () =>
 {
     fetchNotes((notes) =>
@@ -31,6 +36,8 @@ const getAll = () =>
     })
 }
 
+//Function to add a note
+//Can give in callback an error
 const addNote = (title, body, callback) =>
 {
     fetchNotes((notes) =>
@@ -62,6 +69,8 @@ const getNote = (title) =>
     console.log('Read:', title)
 }
 
+//Function to remove a note
+//Can give in callback an error
 const removeNote = (title, callback) =>
 {
     fetchNotes((notes) =>

@@ -1,9 +1,12 @@
 console.log('Starting app.js')
 
+//NPM package
 const yargs = require('yargs')
 
+//Our files
 const notes = require('./notes.js')
 
+//Action in function to command arguments
 const argv = yargs.argv
 switch(argv._[0])
 {

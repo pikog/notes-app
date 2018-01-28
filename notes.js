@@ -66,11 +66,18 @@ const removeNote = (title, callback) =>
 {
     fetchNotes((notes) =>
     {
-        notes = notes.filter((note) => { return note.title != title })
-        saveNotes(notes, (saved) =>
+        notesFiltered = notes.filter((note) => { return note.title != title })
+        if(notesFiltered.length != notes.length)
         {
-            saved ? callback() : callback('Error when saved')
-        })
+            saveNotes(notesFiltered, (saved) =>
+            {
+                saved ? callback() : callback('Error when saved')
+            })
+        }
+        else
+        {
+            callback('Note not found !')
+        }
     })
 }
 

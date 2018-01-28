@@ -82,9 +82,23 @@ const getNote = (title) =>
     console.log('Read:', title)
 }
 
-const removeNote = (title) =>
+const removeNote = (title, callback) =>
 {
-    console.log('Remove:', title)
+    fetchNotes((notes) =>
+    {
+        notes = notes.filter((note) => { return note.title != title })
+        saveNotes(notes, (saved) =>
+        {
+            if(saved)
+            {
+                callback()
+            }
+            else
+            {
+                callback('Error when saved')
+            }
+        })
+    })
 }
 
 module.exports = {

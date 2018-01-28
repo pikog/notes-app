@@ -21,7 +21,11 @@ switch(argv._[0])
         notes.getNote(argv.title)
         break
     case 'remove':
-        notes.removeNote(argv.title)
+        notes.removeNote(argv.title, (err) =>
+        {
+            if(err) { console.log(err) }
+            else { console.log('Note removed !') }
+        })
         break
     default:
         console.log("Unknow command")

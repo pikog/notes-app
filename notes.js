@@ -31,7 +31,7 @@ const getAll = () =>
     {
         for(const note of notes)
         {
-            console.log(`====\nTitle: ${note.title}\nBody: ${note.body}`)
+            displayNote(note)
         }
     })
 }
@@ -64,9 +64,15 @@ const addNote = (title, body, callback) =>
     })
 }
 
-const getNote = (title) =>
+//Function to get body of a note in funtion to title
+//Can give in callback an error or the note found
+const getNote = (title, callback) =>
 {
-    console.log('Read:', title)
+    fetchNotes((notes) =>
+    {
+        const notesFiltered = notes.filter((note) => { return note.title === title })
+        notesFiltered.length == 1 ? callback(null, notesFiltered[0]) : callback('Not not found !')
+    })
 }
 
 //Function to remove a note
@@ -90,9 +96,15 @@ const removeNote = (title, callback) =>
     })
 }
 
+const displayNote = (note) =>
+{
+    console.log(`====\nTitle: ${note.title}\nBody: ${note.body}`)
+}
+
 module.exports = {
     getAll,
     addNote,
     getNote,
-    removeNote
+    removeNote,
+    displayNote
 }

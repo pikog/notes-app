@@ -23,7 +23,10 @@ switch(argv._[0])
         break
     case 'read':
     //When we get body of a note in function to title
-        notes.getNote(argv.title)
+        notes.getNote(argv.title, (err, note) =>
+        {
+            err ? console.log(err) : notes.displayNote(note)
+        })
         break
     case 'remove':
     //When we remove a note

@@ -15,6 +15,10 @@ This is just a quick memo for me
     - [Run a local node_module](#run-a-local-nodemodule)
     - [Reboot when save](#reboot-when-save)
     - [Good commit with emoji](#good-commit-with-emoji)
+    - [Clear](#clear)
+    - [Debugging](#debugging)
+        - [Commands in debug mode](#commands-in-debug-mode)
+        - [Debugging with Chrome Dev Tool](#debugging-with-chrome-dev-tool)
 
 ## Useful npm packages
 
@@ -151,3 +155,38 @@ For pretty cool commit I used [Gitmoji](https://gitmoji.carloscuesta.me/), [this
 ```bash
 git commit -a -m ":bug:Fixing a bug"
 ```
+
+## Clear
+
+Use `clear` to clear the terminal
+
+## Debugging
+
+In the terminal we can launch a program in debug mode
+
+```bash
+node inspect app.js
+```
+
+We place `debugger` in our code to stop at this specific line
+
+### Commands in debug mode
+
+* `n` go to next line
+* `list(number of line to display)` display a the next lines
+* `c` continue until the next debugger or the end of the program
+* `repl` Go in REPL mode to explore the program (ex: value, function, ...) at the actual step
+
+### Debugging with Chrome Dev Tool
+
+We launch our program in a special inspect mode
+
+```bash
+node --inspect-brk app.js
+```
+
+Go to chrome at `chrome://inspect` and open `Open dedicated DevTools for Node`
+
+On chrome we continue with the blue arrow.  
+We can place a stop with a click on the line
+

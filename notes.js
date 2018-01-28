@@ -98,6 +98,7 @@ const removeNote = (title, callback) =>
 
 const displayNote = (note) =>
 {
+    debugger
     console.log(`====\nTitle: ${note.title}\nBody: ${note.body}`)
 }
 

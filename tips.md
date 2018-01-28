@@ -19,6 +19,7 @@ This is just a quick memo for me
     - [Debugging](#debugging)
         - [Commands in debug mode](#commands-in-debug-mode)
         - [Debugging with Chrome Dev Tool](#debugging-with-chrome-dev-tool)
+        - [Debugging in VSCode](#debugging-in-vscode)
 
 ## Useful npm packages
 
@@ -189,4 +190,25 @@ Go to chrome at `chrome://inspect` and open `Open dedicated DevTools for Node`
 
 On chrome we continue with the blue arrow.  
 We can place a stop with a click on the line
+
+### Debugging in VSCode
+
+We can place a stop with a click on the line  
+We configure the command in `.vscode/launch.json`
+
+```json
+"configurations": [
+    {
+        "type": "node",
+        "request": "launch",
+        "name": "Launch Program",
+        "program": "${workspaceFolder}\\app.js",
+        "args": [
+            "add",
+            "--title=Test8",
+            "--body=My Note"
+        ]
+    }
+]
+```
 

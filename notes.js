@@ -67,7 +67,7 @@ const getNote = (title, callback) =>
     fetchNotes((notes) =>
     {
         const notesFiltered = notes.filter((note) => { return note.title === title })
-        notesFiltered.length == 1 ? callback(null, notesFiltered[0]) : callback('Not not found !')
+        notesFiltered.length == 1 ? callback(null, notesFiltered[0]) : callback('Note not found !')
     })
 }
 

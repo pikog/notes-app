@@ -14,6 +14,7 @@ This is just a quick memo for me
     - [Npm list package](#npm-list-package)
     - [Run a local node_module](#run-a-local-nodemodule)
     - [Reboot when save](#reboot-when-save)
+        - [Good commit with emoji](#good-commit-with-emoji)
 
 ## Useful npm packages
 
@@ -141,4 +142,12 @@ To use it
 
 ```bash
 npx nodemon [app.js]
+```
+
+### Good commit with emoji
+
+For pretty cool commit I used [Gitmoji](https://gitmoji.carloscuesta.me/), [this](https://gist.github.com/parmentf/035de27d6ed1dce0b36a) and [Emoji cheat sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet/)
+
+```bash
+git commit -a -m ":bug:Fixing a bug"
 ```

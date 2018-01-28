@@ -14,6 +14,7 @@ switch(argv._[0])
         notes.addNote(argv.title, argv.body, (err) =>
         {
             if(err) { console.log(err) }
+            else { console.log('Note created !') }
         })
         break
     case 'read':

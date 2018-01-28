@@ -1,5 +1,3 @@
-console.log('Starting notes.js')
-
 //Core package
 const fs = require('fs')
 
@@ -29,10 +27,8 @@ const getAll = () =>
 {
     fetchNotes((notes) =>
     {
-        for(const note of notes)
-        {
-            displayNote(note)
-        }
+        console.log(`There is ${notes.length} note(s)`)
+        notes.forEach((note) => { displayNote(note) })
     })
 }
 
@@ -98,7 +94,6 @@ const removeNote = (title, callback) =>
 
 const displayNote = (note) =>
 {
-    debugger
     console.log(`====\nTitle: ${note.title}\nBody: ${note.body}`)
 }
 

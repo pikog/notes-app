@@ -1,5 +1,3 @@
-console.log('Starting app.js')
-
 //NPM package
 const yargs = require('yargs')
 

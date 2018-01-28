@@ -1,11 +1,9 @@
-//NPM package
-const yargs = require('yargs')
-
 //Our files
 const notes = require('./notes.js')
+const yargsConfig = require('./yargs-config.js')
 
 //Action in function to command arguments
-const argv = yargs.argv
+const argv = yargsConfig()
 switch(argv._[0])
 {
     case 'list':

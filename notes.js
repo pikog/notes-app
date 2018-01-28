@@ -8,14 +8,7 @@ const fetchNotes = (callback) =>
 {
     fs.readFile(filePath, (err, data) =>
     {
-        if(err)
-        {
-            callback([])
-        }
-        else
-        {
-            callback(JSON.parse(data))
-        }
+        err ? callback([]) : callback(JSON.parse(data))
     })
 }
 
@@ -23,13 +16,7 @@ const saveNotes = (notes, callback) =>
 {
     fs.writeFile(filePath, JSON.stringify(notes), (err) =>
     {
-        if(err)
-        {
-            callback(false)
-        }
-        else {
-            callback(true)
-        }
+        err ? callback(false) : callback(true)
     })
 }
 
@@ -60,14 +47,7 @@ const addNote = (title, body, callback) =>
             notes.push(note)
             saveNotes(notes, (saved) =>
             {
-                if(saved)
-                {
-                    callback()
-                }
-                else
-                {
-                    callback('Error when saved')
-                }          
+                saved ? callback() : callback('Error when saved')    
             })
         }
         else
@@ -89,14 +69,7 @@ const removeNote = (title, callback) =>
         notes = notes.filter((note) => { return note.title != title })
         saveNotes(notes, (saved) =>
         {
-            if(saved)
-            {
-                callback()
-            }
-            else
-            {
-                callback('Error when saved')
-            }
+            saved ? callback() : callback('Error when saved')
         })
     })
 }

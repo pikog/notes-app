@@ -13,8 +13,7 @@ switch(argv._[0])
     case 'add':
         notes.addNote(argv.title, argv.body, (err) =>
         {
-            if(err) { console.log(err) }
-            else { console.log('Note created !') }
+            err ? console.log(err) : console.log('Note created !')
         })
         break
     case 'read':
@@ -23,8 +22,7 @@ switch(argv._[0])
     case 'remove':
         notes.removeNote(argv.title, (err) =>
         {
-            if(err) { console.log(err) }
-            else { console.log('Note removed !') }
+            err ? console.log(err) : console.log('Note removed !')
         })
         break
     default:

@@ -113,8 +113,14 @@ try
 }
 catch (err)
 {
-    console.log(err)
+    console.log(err.message)
 }
+```
+
+We can create our error and set a message
+
+```javascript
+throw new Error('My error')
 ```
 
 ## Npm list package

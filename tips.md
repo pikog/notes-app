@@ -192,10 +192,18 @@ We launch our program in a special inspect mode
 node --inspect-brk app.js
 ```
 
+or
+
+```bash
+node --inspect app.js
+```
+
 Go to chrome at `chrome://inspect` and open `Open dedicated DevTools for Node`
 
 On chrome we continue with the blue arrow.  
 We can place a stop with a click on the line
+
+*We can also use nodemon to restart the server at change*
 
 ### Debugging in VSCode
 
